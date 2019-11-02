@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>RESTAURANTS CUISINE RECOMMENDATION</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <p>Enter userID of user who's recommendation you want to see:</p>
+    	<input type="text" name="experience" placeholder="U1001 to U1130" required="required" />
+      <p>Enter no of Cuisine recommendations you need for an user:</p>
+        <input type="text" name="number" placeholder="1-8" required="required" />
+      <p>Which similarity measure you want to use for recommendation:</p>
+		<input type="text" name="similarity_measure" placeholder="cosine/correlation" required="required" />
+<br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+    <strong>
+      {{ prediction_text }}
+    </strong>
+ </div>
+
+
+</body>
+</html>
